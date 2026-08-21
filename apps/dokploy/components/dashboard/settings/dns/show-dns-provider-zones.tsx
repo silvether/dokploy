@@ -80,9 +80,18 @@ const ZoneRecords = ({
 						</span>
 						{providerType === "cloudflare" &&
 							typeof record.proxied === "boolean" && (
-								<Badge variant="outline" className="shrink-0">
+								<span className="inline-flex shrink-0 items-center gap-1.5 text-[11px] text-muted-foreground">
+									<img
+										src="/cloudflare-cloud.png"
+										alt=""
+										className={
+											record.proxied
+												? "h-3.5 w-auto"
+												: "h-3.5 w-auto grayscale opacity-70"
+										}
+									/>
 									{record.proxied ? "Proxied" : "DNS only"}
-								</Badge>
+								</span>
 							)}
 						{canWrite && isEditable && (
 							<HandleDnsRecord

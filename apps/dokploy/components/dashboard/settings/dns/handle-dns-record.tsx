@@ -301,13 +301,25 @@ export const HandleDnsRecord = ({
 								control={form.control}
 								name="proxied"
 								render={({ field }) => (
-									<FormItem className="flex flex-row items-center justify-between rounded-lg border p-3">
-										<div className="space-y-0.5">
-											<FormLabel>Proxy</FormLabel>
-											<FormDescription>
-												Orange cloud — traffic goes through Cloudflare. Off is
-												DNS only.
-											</FormDescription>
+									<FormItem className="flex flex-row items-center justify-between gap-3 rounded-lg border p-3">
+										<div className="flex min-w-0 flex-row items-center gap-2.5">
+											<img
+												src="/cloudflare-cloud.png"
+												alt=""
+												className={
+													field.value
+														? "h-5 w-auto shrink-0"
+														: "h-5 w-auto shrink-0 grayscale opacity-70"
+												}
+											/>
+											<div className="min-w-0">
+												<FormLabel>
+													{field.value ? "Proxied" : "DNS only"}
+												</FormLabel>
+												<FormDescription>
+													{field.value ? "Orange cloud" : "Gray cloud"}
+												</FormDescription>
+											</div>
 										</div>
 										<FormControl>
 											<Switch
